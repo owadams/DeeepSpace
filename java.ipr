@@ -12,6 +12,8 @@
       <entry name="!?*.java" />
     </wildcardResourcePatterns>
     <bytecodeTargetLevel target="1.8">
+      <module name="DeeepSpace.main" target="11" />
+      <module name="DeeepSpace.test" target="11" />
       <module name="java.main" target="11" />
       <module name="java.test" target="11" />
     </bytecodeTargetLevel>
@@ -22,7 +24,6 @@
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -71,9 +72,9 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/java.iml" filepath="$PROJECT_DIR$/java.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java.main.iml" filepath="$PROJECT_DIR$/java.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java.test.iml" filepath="$PROJECT_DIR$/java.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DeeepSpace.iml" filepath="$PROJECT_DIR$/DeeepSpace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DeeepSpace.main.iml" filepath="$PROJECT_DIR$/DeeepSpace.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DeeepSpace.test.iml" filepath="$PROJECT_DIR$/DeeepSpace.test.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
@@ -81,6 +82,9 @@
   </component>
   <component name="SvnBranchConfigurationManager">
     <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="Gradle: com.ctre.phoenix:api-java:5.12.0">

@@ -33,14 +33,13 @@ public class DriveTrain {
 
         BackRight.set(ControlMode.Follower, FrontRightMotorID);
         BackLeft.set(ControlMode.Follower, FrontLeftMotorID);
-
         throttleValue = tab.add("throttle2", 0).withWidget(BuiltInWidgets.kNumberSlider).getEntry();
     }
 
     public void Drive() {
         double xValue = joy.getX();
         double yValue = joy.getY();
-        throttle = (-joystick.getThrottle() + 1) / 2;
+        throttle = (-joy.getThrottle() + 1) / 2;
         FrontRight.set(ControlMode.PercentOutput, (yValue + xValue) * throttle);
         FrontLeft.set(ControlMode.PercentOutput, (-yValue + xValue) * throttle);
         throttleValue.setDouble(throttle);
