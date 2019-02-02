@@ -19,7 +19,7 @@ public class DriveTrain {
     TalonSRX FrontLeft;
     TalonSRX BackRight;
     TalonSRX BackLeft;
-    Joystick joy;
+
 
     ShuffleboardTab tab = Shuffleboard.getTab("tab1");
     NetworkTableEntry throttleValue;
@@ -29,17 +29,19 @@ public class DriveTrain {
         FrontLeft = new TalonSRX(FrontLeftMotorID);
         BackRight = new TalonSRX(BackRightMotorID);
         BackLeft = new TalonSRX(BackLeftMotorID);
-        joy = new Joystick(0);
+
 
         BackRight.set(ControlMode.Follower, FrontRightMotorID);
         BackLeft.set(ControlMode.Follower, FrontLeftMotorID);
         throttleValue = tab.add("throttle2", 0).withWidget(BuiltInWidgets.kNumberSlider).getEntry();
     }
-
+    public void Exterminate(){
+        FrontRight.set(ControlMode.PercentOutput, 0);
+        FrontLeft.set(ControlMode.PercentOutput, 0);
+    }
     public void Drive() {
-        double xValue = joy.getX();
-        double yValue = joy.getY();
-        throttle = (-joy.getThrottle() + 1) / 2;
+        double xValue = Robot.joy.getTurn();
+        double yValue = Robot.joy.getForward();
         FrontRight.set(ControlMode.PercentOutput, (yValue + xValue) * throttle);
         FrontLeft.set(ControlMode.PercentOutput, (-yValue + xValue) * throttle);
         throttleValue.setDouble(throttle);
