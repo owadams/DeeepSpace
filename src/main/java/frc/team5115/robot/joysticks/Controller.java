@@ -1,4 +1,4 @@
-package frc.team5115.robot;
+package frc.team5115.robot.joysticks;
 
 import edu.wpi.first.wpilibj.Joystick;
 
@@ -16,6 +16,8 @@ public class Controller {
     int throttleDecreaseAxis;
     int throttleIncrease;
     int throttleDecrease;
+    int armUp;
+    int armDown;
 
     int ExterminateBind;
 
@@ -64,5 +66,9 @@ public class Controller {
     public boolean ExterminatePressed(){
         return stick.getRawButton(ExterminateBind);
     }
+
+    public boolean getArmUp(){return stick.getRawButton(armUp);}
+
+    public boolean getArmDown(){return stick.getRawButton(armDown);}
 
 }
