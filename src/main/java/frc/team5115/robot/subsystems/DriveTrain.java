@@ -50,11 +50,19 @@ public class DriveTrain {
         FrontLeft.set(ControlMode.PercentOutput, (-yValue + xValue) * throttle);
         throttleValue.setDouble(throttle);
     }
-    public double returnVelocityLeft(){return BackLeft.getSelectedSensorVelocity(0);}
-    public double returnVelocityRight(){return BackRight.getSelectedSensorVelocity(0);}
 
-    public double returnPosistionLeft(){return BackLeft.getSelectedSensorPosition(0);}
-    public double returnPositionRight(){return BackRight.getSelectedSensorPosition(0);}
+    //////////AUTO CODE
+    public double returnVelocityLeft(){return FrontLeft.getSelectedSensorVelocity(0);}
+    public double returnVelocityRight(){return FrontRight.getSelectedSensorVelocity(0);}
 
+    public double returnPosistionLeft(){return FrontLeft.getSelectedSensorPosition(0);}
+    public double returnPositionRight(){return FrontRight.getSelectedSensorPosition(0);}
+
+    public void driveLeft(double value){
+        FrontLeft.set(ControlMode.PercentOutput, value);
+    }
+    public void driveRight(double value){
+        FrontRight.set(ControlMode.PercentOutput, value);
+    }
 
 }

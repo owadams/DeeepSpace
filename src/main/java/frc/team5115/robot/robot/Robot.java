@@ -15,7 +15,7 @@ public class Robot extends TimedRobot {
   public static Controller joy;
   public static DriveStateMachine drivedomination;
   public static ArmStateMachine armdomination;
-  PID mrLoopy; //PID Loop
+  PID PIDLoop; //PID Loop
   public void robotInit() {
       joy = new ThrustMaster(0);
       budgerobot = new DriveTrain();
@@ -35,6 +35,14 @@ public class Robot extends TimedRobot {
       }
   }
   public void autonomousInit(){
-      mrLoopy = new PID("heyy");
+      PIDLoop = new PID("heyy");
+  }
+  public void autonomousPeriodic(){
+      budgerobot.driveLeft(PIDLoop.getPID(3000, budgerobot.returnPosistionLeft(), budgerobot.returnVelocityLeft()));
+      budgerobot.driveRight(PIDLoop.getPID(3000, budgerobot.returnPositionRight(), budgerobot.returnVelocityRight()));
+      if(PIDLoop.isFinished(500,.01)){
+          budgerobot.driveLeft(0);
+          budgerobot.driveLeft(0);
+      }
   }
 }
