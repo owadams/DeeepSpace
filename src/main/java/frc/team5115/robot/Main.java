@@ -5,9 +5,10 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.team5115.robot.robot;
+package frc.team5115.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
+import frc.team5115.robot.robot.Robot;
 
 /**
  * Do NOT add any static variables to this class, or any initialization at all.
