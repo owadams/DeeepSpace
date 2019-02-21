@@ -7,10 +7,10 @@ public class DriveStateMachine extends StateMachineBase{
     public void update(){
         switch(state){
             case STOP:
-                Robot.budgerobot.Exterminate();
+                Robot.driveTrain.Exterminate();
                 break;
             case GO:
-                Robot.budgerobot.Drive();
+                Robot.driveTrain.Drive();
                 break;
         }
     }

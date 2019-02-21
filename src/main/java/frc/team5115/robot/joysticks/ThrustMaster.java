@@ -7,11 +7,10 @@ public class ThrustMaster extends Controller {
         forwardAxis = 0;
         throttleAxis = 3;
         turnAxis = 1;
-        ExterminateBind = 7;
         this.port = port;
         stick = new Joystick(this.port);
-        armUp = 8;
-        armDown = 9;
+        armUp = 1;
+        armDown = 2;
     }
 
     @Override

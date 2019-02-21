@@ -3,40 +3,37 @@ package frc.team5115.robot.statemachines;
 import frc.team5115.robot.robot.Robot;
 
 public class ArmStateMachine extends StateMachineBase {
-    public static final int GO = 1;
-    public static final int RETURN = 2;
-    public static final int INPUT = 0;
-    double height = Robot.arm.homeHeight;
+    public static final int MOVING_UP = 1;
+    public static final int MOVING_DOWN = 2;
+    public static final int NEUTRAL = 0;
+    public double target = Robot.arm.level;
 
     public void update(){
+        Robot.arm.getPosition();
         switch(state) {
-            case INPUT:
-                if(Robot.joy.getArmUp()){
-                    state = GO;
-                }
-                else if(Robot.joy.getArmDown()){
-                    state = RETURN;
-                }
+            case NEUTRAL:
+                Robot.arm.moveArm(0);
                 break;
 
-            case GO:
-                while(!Robot.arm.getTop()){
-                    height += Robot.arm.heightIncrease;
-                    Robot.arm.setHeight(height);
+            case MOVING_UP:
+                System.out.println("target " + target);
+                System.out.println("angle " + Robot.arm.navX.getRoll());
+                System.out.println("position " + Robot.arm.level);
+                if(Robot.arm.level == target){
+                    state = NEUTRAL;
                 }
-                if(Robot.arm.getTop()){
-                    state = INPUT;
-                }
+                Robot.arm.moveArm(.5);
                 break;
 
-            case RETURN:
-                while(!Robot.arm.getHome()){
-                    height -= Robot.arm.heightIncrease;
-                    Robot.arm.setHeight(height);
+            case MOVING_DOWN:
+                System.out.println("target " + target);
+                System.out.println("angle " + Robot.arm.navX.getRoll());
+                System.out.println("position " + Robot.arm.level);
+                System.out.println("downnnnn");
+                if(Robot.arm.level == target){
+                    state = NEUTRAL;
                 }
-                if(Robot.arm.getHome()){
-                    state = INPUT;
-                }
+                Robot.arm.moveArm(-.5);
                 break;
         }
     }

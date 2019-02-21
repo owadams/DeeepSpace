@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import frc.team5115.robot.robot.Robot;
 
 public class DriveTrain {
-    int FrontRightMotorID = 4;
-    int FrontLeftMotorID = 3;
-    int BackRightMotorID = 2;
-    int BackLeftMotorID = 1;
+    int FrontRightMotorID = 2; // 2018 bot left front 1, right front 2, left back 3, right back 4
+    int FrontLeftMotorID = 1;
+    int BackRightMotorID = 4;
+    int BackLeftMotorID = 3;
     double throttle;
 
     TalonSRX FrontRight;
@@ -22,7 +22,7 @@ public class DriveTrain {
     TalonSRX BackLeft;
 
 
-    public static ShuffleboardTab tab = Shuffleboard.getTab("tab1");
+    public static ShuffleboardTab tab = Shuffleboard.getTab("PID Values");
     NetworkTableEntry throttleValue;
 
     public DriveTrain() {
@@ -44,6 +44,7 @@ public class DriveTrain {
         FrontLeft.set(ControlMode.PercentOutput, 0);
     }
     public void Drive() {
+        throttle = Robot.joy.processThrottle();
         double xValue = Robot.joy.getTurn();
         double yValue = Robot.joy.getForward();
         FrontRight.set(ControlMode.PercentOutput, (yValue + xValue) * throttle);
@@ -52,11 +53,21 @@ public class DriveTrain {
     }
 
     //////////AUTO CODE
-    public double returnVelocityLeft(){return FrontLeft.getSelectedSensorVelocity(0);}
-    public double returnVelocityRight(){return FrontRight.getSelectedSensorVelocity(0);}
+    public double returnVelocityLeft(){
+        System.out.println("Velocity Left:" + FrontLeft.getSelectedSensorVelocity(0));
+        return FrontLeft.getSelectedSensorVelocity(0);
+    }
+    public double returnVelocityRight(){
+        System.out.println("Velocity Right:" + FrontRight.getSelectedSensorVelocity(0));
+        return FrontRight.getSelectedSensorVelocity(0);}
 
-    public double returnPosistionLeft(){return FrontLeft.getSelectedSensorPosition(0);}
-    public double returnPositionRight(){return FrontRight.getSelectedSensorPosition(0);}
+    public double returnPosistionLeft(){
+        System.out.println("Position Left:" + FrontLeft.getSelectedSensorPosition(0));
+        return FrontLeft.getSelectedSensorPosition(0);}
+
+    public double returnPositionRight(){
+        System.out.println("Position Right:" + FrontRight.getSelectedSensorPosition(0));
+        return FrontRight.getSelectedSensorPosition(0);}
 
     public void driveLeft(double value){
         FrontLeft.set(ControlMode.PercentOutput, value);
@@ -64,5 +75,7 @@ public class DriveTrain {
     public void driveRight(double value){
         FrontRight.set(ControlMode.PercentOutput, value);
     }
+
+
 
 }
