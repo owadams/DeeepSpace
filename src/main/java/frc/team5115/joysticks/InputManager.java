@@ -2,6 +2,9 @@ package frc.team5115.joysticks;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.team5115.ArmCommandDown;
+import frc.team5115.ArmCommandUp;
 import frc.team5115.Debug;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +23,9 @@ public class InputManager {
     private int tries = 0;
 
     private JSONObject controllerData;
+
+    public int armUp;
+    public int armDown;
 
     public InputManager() {
         try {
@@ -76,7 +82,12 @@ public class InputManager {
     }
     
     public void createBinds(){
-        //button binds here
+        JoystickButton armCommandUp;
+        JoystickButton armCommandDown;
+        armCommandUp = new JoystickButton(primary.returnInstance(), 1);
+        armCommandUp.whenPressed(new ArmCommandUp());
+        armCommandDown = new JoystickButton(primary.returnInstance(), 2);
+        armCommandDown.whenPressed(new ArmCommandDown());
     }
 
 }

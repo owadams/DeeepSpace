@@ -12,16 +12,16 @@ public class Controller {
     private int forwardAxis;
     private int turnAxis;
 
-    private double throttle = 0.5;
-    private String throttleMethod;
-    private int throttleAxis;
-    private int throttleIncreaseAxis;
-    private int throttleDecreaseAxis;
-    private int throttleIncrease;
-    private int throttleDecrease;
+    public double throttle = 0.5;
+    public String throttleMethod;
+    public int throttleAxis;
+    public int throttleIncreaseAxis;
+    public int throttleDecreaseAxis;
+    public int throttleIncrease;
+    public int throttleDecrease;
 
-    int scanBind;
-    int killBind;
+    public int scanBind;
+    public int killBind;
 
     Controller(int port, JSONObject data) {
         stick = new Joystick(port);
