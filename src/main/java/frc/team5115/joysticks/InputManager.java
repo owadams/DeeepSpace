@@ -2,15 +2,7 @@ package frc.team5115.joysticks;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.team5115.Debug;
-import frc.team5115.commands.arm.MoveDown;
-import frc.team5115.commands.arm.MoveUp;
-import frc.team5115.commands.climber.StartClimb;
-import frc.team5115.commands.succ.ToggleSucc;
-import frc.team5115.commands.wrist.MoveLeft;
-import frc.team5115.commands.wrist.MoveRight;
-import frc.team5115.commands.wrist.MoveY;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -84,27 +76,7 @@ public class InputManager {
     }
     
     public void createBinds(){
-        JoystickButton test = new JoystickButton(secondary.returnInstance(), 4);
-        test.whenPressed(new MoveUp());
-
-        JoystickButton test2 = new JoystickButton(secondary.returnInstance(), 2);
-        test2.whenPressed(new MoveDown());
-
-        JoystickButton succ = new JoystickButton(secondary.returnInstance(), 3);
-        succ.toggleWhenPressed(new ToggleSucc());
-
-        JoystickButton climb = new JoystickButton(secondary.returnInstance(), 5);
-        climb.whenPressed(new StartClimb());
-
-        POVButton moveLeft = new POVButton(secondary.returnInstance(), 90);
-        moveLeft.whileHeld(new MoveLeft());
-
-        POVButton moveRight = new POVButton(secondary.returnInstance(), 270);
-        moveRight.whileHeld(new MoveRight());
-
-        POVButton moveY = new POVButton(secondary.returnInstance(), 0);
-        moveY.whenPressed(new MoveY());
-
+        //button binds here
     }
 
 }
