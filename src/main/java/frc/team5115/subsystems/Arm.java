@@ -40,6 +40,3 @@ public class Arm {
         return navX.getRoll() <= zone + 2 && navX.getRoll() >= zone - 2;
     }
 }
-//the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown
-//the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown
-//the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown fox jumped over the lazy dog the big brown
